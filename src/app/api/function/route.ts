@@ -2,6 +2,11 @@ import crypto from "crypto";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
+const methods = {
+  "Search Plain": "plain",
+  "Search Embed": "embed",
+};
+
 export async function PUT(req: NextRequest) {
   const res = await req.json();
 
@@ -25,7 +30,7 @@ export async function PUT(req: NextRequest) {
       type: "wam",
       attributes: {
         appId: process.env.APP_ID as string,
-        name: "search",
+        name: methods[res.method as keyof typeof methods],
       },
     },
   });
