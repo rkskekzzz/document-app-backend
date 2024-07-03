@@ -28,9 +28,12 @@ export async function PUT(req: NextRequest) {
   return NextResponse.json({
     result: {
       type: "wam",
-      name: "",
       attributes: {
-        type: methods[res.method as keyof typeof methods],
+        appId: process.env.APP_ID as string,
+        name: "search",
+        wamArgs: {
+          type: methods[res.method as keyof typeof methods],
+        },
       },
     },
   });
