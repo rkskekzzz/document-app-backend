@@ -25,7 +25,7 @@ export async function PUT(req: NextRequest) {
       type: "wam",
       attributes: {
         appId: process.env.APP_ID as string,
-        name: "",
+        name: "search",
       },
     },
   });
