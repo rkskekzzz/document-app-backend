@@ -26,6 +26,9 @@ export async function PUT(req: NextRequest) {
       attributes: {
         appId: process.env.CONVERT_APP_ID as string,
         name: "convert",
+        wamArgs: {
+          deskInfo: res,
+        },
       },
     },
   });
